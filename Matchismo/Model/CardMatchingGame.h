@@ -16,4 +16,5 @@
 - (Card *)cardAtIndex:(NSUInteger)index;
 
 @property (nonatomic, readonly) NSInteger score;
+@property (strong, readonly) NSString *resultString;
 @end

@@ -21,6 +21,7 @@
 @property (nonatomic, strong) Deck *deck;
 @property (nonatomic, strong) CardMatchingGame *game;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *resultLabel;
 @end
 
 @implementation CardGameViewController
@@ -69,6 +70,7 @@
         
     }
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld",(long)self.game.score];
+    self.resultLabel.text = [NSString stringWithFormat:@"Result: %@",self.game.resultString];
 }
 
 - (NSString *)titleForCard:(Card *)card
@@ -82,7 +84,6 @@
 }
 
 - (IBAction)startNewGame:(id)sender {
-    NSInteger cardCount = [self.cardButtons count];
     _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count] usingDeck:[self createDeck]];
     [self updateUI];
 }
